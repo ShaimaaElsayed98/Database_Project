@@ -1,1 +1,69 @@
 <%- include('_header'); -%>
+
+
+<html>
+   <head>
+       <meta charset="UTF-8"/>
+       <meta name="viewport" content="width=device-width",initial-scale=1.0>
+       <link rel="stylesheet" type="text/css" href="Projects.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=GFS+Neohellenic&display=swap" rel="stylesheet">
+       <script>document.getElementById('date').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    </script>
+   </head> 
+
+<body>
+    <div class="The-Criteria">
+       <a class="CriteriaTitle" >Κριτήρια Αναζήτησης</a>
+       <br></br>
+           <div class='custom-select'>
+              <label for="options" class="criterianames" >Διάρκεια</label> 
+              <br>
+                 <select class="options" >
+                    <option>---</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <span class="custom-arrow"></span>
+            </div>
+            <br></br>
+            <div>
+               <label for="date" class="criterianames">Ημερ/νία</label>
+               <br>
+               <input type="date" id="date" min="2012-01-01">
+            </div>
+            <br></br>
+            <div>
+              <label for="searchbar" class="criterianames">Στέλεχος</label>
+              <br>
+              <input type="text"  id="searchbar" placeholder="Search.." name="search" method="POST" action="/" novalidate>
+            </div>
+            <br></br>
+            <button type="button" class="SearchButton" method="POST" action="/">Αναζήτηση</button>
+    </div>
+    <div class="'tableofprojects">
+      <table id="table1">
+         <thead >
+            <th>ID</th>
+            <th>Όνομα</th>
+            <th>Ημερ/νία έναρξης</th>
+            <th>Ημερ/νία λήξης</th>
+            <th>Διάρκεια</th>
+            <th>Στέλεχος</th>
+            <th>Έργα</th>
+          </thead>
+      </table>
+    </div>
+      <table id="table2">
+          <thead>
+            <th>ID</th>
+            <th>Ερευνητές</th>
+          </thead>  
+      </table>
+      <tbody>
+         
+      </tbody>
+</body>
+
+</html>

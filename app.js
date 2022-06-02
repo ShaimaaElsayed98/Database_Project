@@ -1,73 +1,45 @@
-var express = require("express");
-var path = require("path");
-const mysql=require('mysql')
-var routes= require("./Routes/routes");
-const { request } = require("http");
-const console = require("console");
+const express = require("express");
+const path = require("path");
+const session = require('express-session');
+
+/* Routes imports */
+const index = require('./Routes/index.js'); 
+const Exec = require('./Routes/Exec.js'); 
+const Org = require('./Routes/Org.js'); 
+const programs = require('./Routes/programs.js'); 
+const Proj = require('./Routes/Proj.js'); 
+const Researchers = require('./Routes/Researchers.js'); 
+const Sci_Fields = require('./Routes/Sci_Fields.js'); 
+
+/* End of Routes imports */
 var app =  express();
-
-
-/*Database connection through pool (not working)
-/*const pool = mysql.createPool({
-    connectionLimit : 100,
-    host : process.env.DB_HOST,
-    user : process.env_DB_USER,
-    database : process.env.DB_NAME,
-    port : process.env.DB_PORT
-})*/
-
-
-/*database connected*/
-var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "elidek",
-    port: "3306"
-})
-
-/*Not working
-/*pool.getConnection((err, connection) => {
-    if(err){
-        throw err
-    }
-    else {
-        console.log("connected")
-    }
-});*/
-
-connection.connect((err) =>{
-    if(err){
-        throw err
-    }
-    else {
-        console.log("database connected")
-    }
-
-})
-
-/*Tested the connection, it works
-connection.connect(function(err){
-    if(err)throw err;
-    connection.query("SELECT * from programs",function(err,result){
-          if(err)throw err;
-          console.log(result);
-
-    })
-})*/
-
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 /*connected through port 3000*/
-app.set("port", process.env.PORT || 3000);
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
-app.use(express.static(__dirname + '/public'));
-app.use(routes);
+app.use(flash());
 
-app.listen(app.get("port"),function(){
-    console.log("Server started on port " + app.get("port"));
-});
+app.use(session({
+    secret: "ThisShouldBeSecret",
+    resave: false,
+    saveUninitialized: false
+}));
 
+/* All the routes used by the program */
+
+app.use('/', index);
+app.use('/executives', Exec);
+app.use('/organizations', Org);
+app.use('/programs', programs);
+app.use('/projects', Proj);
+app.use('/researchers', Researchers);
+app.use('/scientific_fields', Sci_Fields);
+
+/* End of routes used */
+
+module.exports = app;
