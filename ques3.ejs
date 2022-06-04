@@ -1,0 +1,112 @@
+<%- include('_header'); -%>
+
+   <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="../css/Questions.css">
+    </head>
+
+    <body>
+        <div class="accordion">
+            <div class="accordion-item">
+            <div class="accordion-item-header">
+                Ερώτηση 3.2
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                    <table id="table1">
+                        <thead>
+                            <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% Researchers.forEach((Researcher, _) => { %>
+                                <tr>
+                                    <td><%= Researcher.Researcher_id %></td>
+                                    <td><%= Researcher.Name %></td>
+                                </tr>
+                                <% }) %>
+                          </tbody>  
+                    </table>
+                </div>
+            </div>
+     </div>
+  </div>
+
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    <script>
+    
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+accordionItemHeaders.forEach(accordionItemHeader => {
+  accordionItemHeader.addEventListener("click", event => {
+     const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+     if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+     currentlyActiveAccordionItemHeader.classList.toggle("active");
+       currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+     }
+    accordionItemHeader.classList.toggle("active");
+    const accordionItemBody = accordionItemHeader.nextElementSibling;
+    if(accordionItemHeader.classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+    }
+    else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+    
+  });
+});     
+    </script>
+    <script>
+        function setModalFields(row) {
+            document.getElementById("Researcher_id").value = row.dataset.Researcher_id;
+            document.getElementById("Name").value = row.dataset.Name;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+       $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false
+            };
+            /* In order to access variables sent to ejs file to script you must Parse them to string*/ 
+            /* then to parse them back to JSON */
+            let messages = '<%- JSON.stringify(messages) %>';
+            messages = JSON.parse(messages);
+            messages.forEach(({
+                type,
+                value
+            }) => {
+                switch (type) {
+                    case 'error':
+                        toastr.error(value)
+                        break;
+                    case 'success':
+                        toastr.success(value)
+                        break;
+                    case 'warning':
+                        toastr.warning(value)
+                        break;
+                    default:
+                        toastr.info(value)
+                        break;
+                }
+            });
+        })
+    </script>
+    </body>
+</html>
