@@ -1,0 +1,370 @@
+<%- include('_header'); -%>
+
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/home.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Ερωτήσεις</h1>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.2
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Projects per Researcher</th>
+                                    <th>Researcher Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.2.1'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.Researcher_id %>
+                                        </td>
+                                        <td>
+                                            <%= item.Projects_per_Researcher %>
+                                        </td>
+                                        <td>
+                                            <%=item.researcher_Name%>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Gender</th>
+                                    <th>Researchers Gender Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.2.2'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.Gender %>
+                                        </td>
+                                        <td>
+                                            <%= item.Researchers_Gender_Count %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.3
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Scientific Name</th>
+                                    <th>Title</th>
+                                    <th>Name</th>
+                                    <th>Last Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.3'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.sf_name %>
+                                        </td>
+                                        <td>
+                                            <%= item.Title %>
+                                        </td>
+                                        <td>
+                                            <%= item.Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.Last_Name %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.4
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Org ID</th>
+                                    <th>Name</th>
+                                    <th>Abbreviation</th>
+                                    <th>TOTAL_PROJECTS_IN_2_Y</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.4'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.Org_id %>
+                                        </td>
+                                        <td>
+                                            <%= item.Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.Abbreviation %>
+                                        </td>
+                                        <td>
+                                            <%= item.TOTAL_PROJECTS_IN_2_Y %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.5
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sci ID</th>
+                                    <th>Sci ID</th>
+                                    <th>Occurence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.5'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.sci_id_1 %>
+                                        </td>
+                                        <td>
+                                            <%= item.sci_id_2 %>
+                                        </td>
+                                        <td>
+                                            <%= item.occurence %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.6
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Researcher ID</th>
+                                    <th>Name</th>
+                                    <th>Last Name</th>
+                                    <th>projects</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.6'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.Researcher_id %>
+                                        </td>
+                                        <td>
+                                            <%= item.Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.Last_name %>
+                                        </td>
+                                        <td>
+                                            <%= item.projects %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.7
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Exec ID</th>
+                                    <th>First_Name</th>
+                                    <th>Last Name</th>
+                                    <th>Org ID</th>
+                                    <th>Name</th>
+                                    <th>Funding</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.7'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.exec_id %>
+                                        </td>
+                                        <td>
+                                            <%= item.First_Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.Last_Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.org_id %>
+                                        </td>
+                                        <td>
+                                            <%= item.Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.funding %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    Ερώτηση 3.8
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <table id="table1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Researcher ID</th>
+                                    <th>Name</th>
+                                    <th>Last Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data['3.8'].forEach((item, _)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.Researcher_id %>
+                                        </td>
+                                        <td>
+                                            <%= item.Name %>
+                                        </td>
+                                        <td>
+                                            <%= item.Last_Name %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    <script>
+
+        const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+        accordionItemHeaders.forEach(accordionItemHeader => {
+            accordionItemHeader.addEventListener("click", event => {
+                const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+                if (currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader !== accordionItemHeader) {
+                    currentlyActiveAccordionItemHeader.classList.toggle("active");
+                    currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+                }
+                accordionItemHeader.classList.toggle("active");
+                const accordionItemBody = accordionItemHeader.nextElementSibling;
+                if (accordionItemHeader.classList.contains("active")) {
+                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                }
+                else {
+                    accordionItemBody.style.maxHeight = 0;
+                }
+
+            });
+        });     
+    </script>
+    <script>
+        function setModalFields(row) {
+            document.getElementById("Researcher_id").value = row.dataset.Researcher_id;
+            document.getElementById("Name").value = row.dataset.Name;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false
+            };
+            /* In order to access variables sent to ejs file to script you must Parse them to string */
+            /* then to parse them back to JSON */
+            let messages = '<%- JSON.stringify(messages) %>';
+            messages = JSON.parse(messages);
+            messages.forEach(({
+                type,
+                value
+            }) => {
+                switch (type) {
+                    case 'error':
+                        toastr.error(value)
+                        break;
+                    case 'success':
+                        toastr.success(value)
+                        break;
+                    case 'warning':
+                        toastr.warning(value)
+                        break;
+                    default:
+                        toastr.info(value)
+                        break;
+                }
+            });
+        })
+    </script>
